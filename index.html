@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Muhammad Ahmad | Flutter Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="gradient-bg"></div>
+<div class="stars" id="stars"></div>
+<div class="floating-shapes" id="shapes"></div>
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<nav class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <i class="fab fa-flutter"></i> FlutterForge
+        </div>
+        <div class="nav-links">
+            <button data-nav="home">Home</button>
+            <button data-nav="projects">Projects</button>
+            <button data-nav="skills">Skills</button>
+            <button data-nav="experience">Experience</button>
+            <button data-nav="contact">Contact</button>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fab fa-flutter"></i>
+                    <span>Flutter Expert • 1+ Years Experience</span>
+                </div>
+                <h1>Building Dreams Into Digital Reality</h1>
+                <p>Hi, I'm Muhammad Ahmad — passionate Flutter developer creating stunning, high-performance cross-platform apps that users love.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button onclick="scrollToSection('contact')" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </button>
+                    <button onclick="scrollToSection('projects')" class="btn-outline">
+                        <i class="fab fa-github"></i> View Portfolio
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div><div class="stat-number">12+</div><div style="color: #94a3b8;">Projects</div></div>
+                    <div><div class="stat-number">8+</div><div style="color: #94a3b8;">Happy Clients</div></div>
+                    <div><div class="stat-number">5⭐</div><div style="color: #94a3b8;">Ratings</div></div>
+                </div>
+            </div>
+            <div class="flutter-3d-card">
+                <div class="flutter-card-inner">
+                    <img src="/WhatsApp Image 2026-03-18 at 3.42.40 PM.jpeg" alt="Muhammad Ahmad - Flutter Developer" class="profile-image" id="profileImg" />
+                    <i class="fab fa-flutter fallback-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Tech Arsenal</h2>
+            <div class="skills-grid" id="skillsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline" id="timeline"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-form">
+                <div id="feedback" style="display: none;"></div>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name *" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email Address *" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject *" required />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" name="message" placeholder="Tell me about your project... *" required></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="social-links">
+                    <div class="social-icon" onclick="window.open('https://github.com', '_blank')"><i class="fab fa-github"></i></div>
+                    <div class="social-icon" onclick="window.open('https://linkedin.com', '_blank')"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="social-icon" onclick="window.open('https://twitter.com', '_blank')"><i class="fab fa-twitter"></i></div>
+                    <div class="social-icon" onclick="window.open('https://instagram.com', '_blank')"><i class="fab fa-instagram"></i></div>
+                    <div class="social-icon" onclick="window.open('https://dev.to', '_blank')"><i class="fab fa-dev"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Muhammad Ahmad | Flutter Developer | Building Amazing Experiences Across All Devices</p>
+    </div>
+</footer>
+
+<script>
+    // Data
+    const projects = [
+        { icon: "fas fa-store", title: "Cook And Maid", desc: "Complete home service booking platform with real-time tracking, payment integration, and chat system.", tags: ["Flutter", "Firebase", "GetX"] },
+        { icon: "fas fa-store", title: "Rezorent", desc: "E-commerce solution with 10k+ downloads, featuring AI recommendations and AR try-on.", tags: ["Flutter", "Firebase", "GetX"] },
+        { icon: "fas fa-motorcycle", title: "Bike Shopping", desc: "Multi-vendor bike marketplace with live inventory, reviews, and secure payments.", tags: ["Flutter", "MySQL", "REST API"] },
+    ];
+
+    const skills = [
+        { icon: "fab fa-flutter", name: "Flutter & Dart", level: "Expert" },
+        { icon: "fab fa-php", name: "PHP", level: "Advanced" },
+        { icon: "fas fa-database", name: "MySQL/Firebase", level: "Advanced" },
+        { icon: "fab fa-react", name: "React.js", level: "Intermediate" },
+        { icon: "fas fa-cloud", name: "Cloud Services", level: "Advanced" },
+        { icon: "fab fa-git-alt", name: "Git & CI/CD", level: "Expert" },
+        { icon: "fas fa-mobile-alt", name: "iOS & Android", level: "Advanced" }
+    ];
+
+    const experiences = [
+        { year: "Feb 2026 - Present", title: "Junior Flutter Developer", company: "Jeux Developer", desc: "Built 5+ cross-platform apps with 5k+ combined downloads and 4.8+ ratings." },
+        { year: "Dec 2025 - Jan 2026", title: "Flutter Developer", company: "DevelopersHub Corporation", desc: "Built cross-platform apps with 1k+ combined downloads and 4.8+ ratings." },
+        { year: "July 2025 - Nov 2025", title: "Junior Developer", company: "StartUp Hub", desc: "Started Flutter journey, learned and contributed to live projects, mastered core concepts." }
+    ];
+
+    // Render Projects
+    function renderProjects() {
+        const container = document.getElementById('projectsGrid');
+        container.innerHTML = projects.map(p => `
+            <div class="project-card">
+                <div class="project-icon"><i class="${p.icon}"></i></div>
+                <h3>${p.title}</h3>
+                <p style="color: #94a3b8; margin-bottom: 15px; font-size: 0.9rem;">${p.desc}</p>
+                <div>${p.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('')}</div>
+            </div>
+        `).join('');
+    }
+
+    // Render Skills
+    function renderSkills() {
+        const container = document.getElementById('skillsGrid');
+        container.innerHTML = skills.map(s => `
+            <div class="skill-card">
+                <div class="skill-icon"><i class="${s.icon}"></i></div>
+                <h4>${s.name}</h4>
+                <p style="color: #1E88E5; font-size: 0.8rem;">${s.level}</p>
+            </div>
+        `).join('');
+    }
+
+    // Render Experience
+    function renderExperience() {
+        const container = document.getElementById('timeline');
+        container.innerHTML = experiences.map(exp => `
+            <div class="timeline-item">
+                <div style="color: #1E88E5; font-weight: bold; margin-bottom: 8px; font-size: 0.9rem;">${exp.year}</div>
+                <h3 style="margin-bottom: 5px;">${exp.title}</h3>
+                <div style="color: #6C63FF; margin-bottom: 10px; font-size: 0.9rem;">${exp.company}</div>
+                <p style="color: #94a3b8; font-size: 0.9rem;">${exp.desc}</p>
+            </div>
+        `).join('');
+    }
+
+    // Scroll to section
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Generate stars
+    function generateStars() {
+        const starsContainer = document.getElementById('stars');
+        if (!starsContainer) return;
+        starsContainer.innerHTML = '';
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 3 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.setProperty('--duration', Math.random() * 3 + 1 + 's');
+            starsContainer.appendChild(star);
+        }
+    }
+
+    // Generate floating shapes
+    function generateShapes() {
+        const shapesContainer = document.getElementById('shapes');
+        if (!shapesContainer) return;
+        shapesContainer.innerHTML = '';
+        for (let i = 0; i < 10; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            shape.style.width = Math.random() * 150 + 50 + 'px';
+            shape.style.height = shape.style.width;
+            shape.style.left = Math.random() * 100 + '%';
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.animationDelay = Math.random() * 10 + 's';
+            shape.style.animationDuration = Math.random() * 20 + 10 + 's';
+            shapesContainer.appendChild(shape);
+        }
+    }
+
+    // Custom cursor
+    function initCursor() {
+        if (window.innerWidth < 769) return;
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        if (!cursor || !cursorDot) return;
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+            cursorDot.style.transform = `translate(${e.clientX - 2.5}px, ${e.clientY - 2.5}px)`;
+        });
+        
+        const interactiveElements = document.querySelectorAll('button, .project-card, .skill-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = `scale(1.5)`;
+                cursorDot.style.transform = `scale(0.5)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = `scale(1)`;
+                cursorDot.style.transform = `scale(1)`;
+            });
+        });
+    }
+
+    // Handle image error
+    document.addEventListener('DOMContentLoaded', () => {
+        const img = document.getElementById('profileImg');
+        if (img) {
+            img.onerror = () => {
+                img.style.display = 'none';
+                document.querySelector('.fallback-icon').style.display = 'block';
+            };
+        }
+    });
+
+    // Form submission
+    document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value
+        };
+        
+        const feedbackDiv = document.getElementById('feedback');
+        
+        try {
+            const response = await fetch('/api/contact.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            feedbackDiv.style.display = 'block';
+            if (result.success) {
+                feedbackDiv.className = 'alert alert-success';
+                feedbackDiv.innerHTML = result.message;
+                form.reset();
+            } else {
+                feedbackDiv.className = 'alert alert-error';
+                feedbackDiv.innerHTML = result.error || (result.errors ? result.errors.join(', ') : 'Something went wrong');
+            }
+            
+            setTimeout(() => {
+                feedbackDiv.style.display = 'none';
+            }, 5000);
+        } catch (error) {
+            feedbackDiv.style.display = 'block';
+            feedbackDiv.className = 'alert alert-error';
+            feedbackDiv.innerHTML = 'Network error. Please try again.';
+            setTimeout(() => {
+                feedbackDiv.style.display = 'none';
+            }, 5000);
+        }
+    });
+
+    // Navigation buttons
+    document.querySelectorAll('[data-nav]').forEach(btn => {
+        btn.addEventListener('click', () => scrollToSection(btn.dataset.nav));
+    });
+
+    // Initialize everything
+    generateStars();
+    generateShapes();
+    initCursor();
+    renderProjects();
+    renderSkills();
+    renderExperience();
+</script>
+</body>
+</html>
